@@ -1,0 +1,21 @@
+@import "./../../App";
+
+#about-me {
+  height: 100vh;
+  background: url("./../../assets/img/music-bg.jpeg");
+  background-size: cover;
+  filter: grayscale(100%);
+
+  .heading {
+    background: rgb(231,208,124);
+    background: $primaryGoldGradient;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    text-align: center;
+    padding-top: 2rem;
+
+    font-size: 10rem;
+    font-weight: 100;
+  }
+}

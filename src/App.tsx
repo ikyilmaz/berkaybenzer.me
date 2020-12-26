@@ -1,26 +1,49 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import gsap, {Expo} from 'gsap';
+import {Heading} from "./components/Heading/Heading";
+import {AboutMe} from "./components/AboutMe/AboutMe";
+import {NavBar} from "./components/NavBar/NavBar";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const firstSlideRef = React.useRef<HTMLDivElement>(null)
+    const secondSlideRef = React.useRef<HTMLDivElement>(null)
+    const [tl] = React.useState(gsap.timeline())
+
+    React.useEffect(() => {
+        tl
+            .to([firstSlideRef.current], {scaleY: 0, ease: Expo.easeInOut, duration: 1.5})
+            .to([secondSlideRef.current], {scaleY: 0, ease: Expo.easeInOut, duration: 1.5,}, "-=1.4")
+    }, [tl])
+
+
+    return (
+        <div className={"container"}>
+            <div className={"app"}>
+                {/*Right Side Navigation*/}
+                <NavBar/>
+                {/*Right Side Navigation*/}
+
+                {/*Animation*/}
+                <div ref={secondSlideRef} className={"slide-out second-slide-out"}/>
+                <div ref={firstSlideRef} className={"slide-out first-slide-out"}/>
+                {/*Animation*/}
+
+                {/*Heading*/}
+                <Heading/>
+                {/*Heading*/}
+
+                {/*About Me*/}
+                <AboutMe/>
+                {/*About Me*/}
+            </div>
+            <div className={"nav-wrapper"}>
+                <NavBar/>
+
+            </div>
+
+        </div>
+    );
 }
 
 export default App;

@@ -1,7 +1,7 @@
 {
   "navigation": {
-    "music": "Music",
-    "aboutMe": "About Me",
-    "contact": "Contact"
+    "music": "music",
+    "aboutMe": "about",
+    "contact": "contact"
   }
 }

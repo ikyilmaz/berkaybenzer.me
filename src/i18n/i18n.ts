@@ -1,13 +1,13 @@
 import i18n from "i18next";
-import {reactI18nextModule} from "react-i18next";
+import { initReactI18next } from 'react-i18next';
 
-import translationEN from './i18n/locales/en/translation.json';
-import translationTR from './i18n/locales/tr/translation.json';
-import translationCN from './i18n/locales/cn/translation.json';
+import translationEN from './locales/en/translation.json';
+import translationTR from './locales/tr/translation.json';
+import translationCN from './locales/cn/translation.json';
 
 
-i18n // @ts-ignore
-    .use(reactI18nextModule)
+i18n
+    .use(initReactI18next)
     .init({
         resources: {
             en: {
@@ -22,8 +22,8 @@ i18n // @ts-ignore
         },
         lng: "tr",
 
-        keySeparator: false,
-
+        // keySeparator: false,
+        initImmediate : false,
         interpolation: {
             escapeValue: false
         }
